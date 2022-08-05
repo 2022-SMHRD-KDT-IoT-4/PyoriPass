@@ -167,6 +167,22 @@
 			<artifactId>HikariCP</artifactId>
 			<version>4.0.3</version>
 		</dependency>
+
+		<!-- jackson databind 라이브러리 -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.13.3</version>
+		</dependency>
+
+		<!-- 비밀번호 암호화 : Spring-security 모듈  -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.6.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

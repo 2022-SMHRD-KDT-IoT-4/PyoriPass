@@ -4,9 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pyori.domain.HostVO;
 import com.pyori.mapper.HostMapper;
@@ -16,6 +18,9 @@ public class HostController {
 
 	@Autowired
 	HostMapper mapper;
+
+	// 암호화 객체 : 회원가입, 로그인, 비밀번호 찾기에 사용
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 	// 메인페이지로 이동
 	@RequestMapping("/main.do")
@@ -53,6 +58,11 @@ public class HostController {
 	@RequestMapping("/joinSuccess.do")
 	public String joinSuccess(HostVO vo, Model model) {
 		System.out.println(vo);
+
+		// 비밀번호 암호화
+		String securePassword = encoder.encode(vo.getHost_pw());
+		vo.setHost_pw(securePassword);
+
 		mapper.join(vo);
 		model.addAttribute("vo", vo);
 		return "dashMain";
@@ -65,14 +75,20 @@ public class HostController {
 	}
 
 	@RequestMapping("loginForm.do")
-	public String login_Check(HostVO vo, HttpSession session) {
-		
-		String result = mapper.login(vo);
+	public String login_Check(String host_id, String host_pw, HttpSession session) {
 
-		session.setAttribute("vo", vo);
-		if (result != null) {
-			return "dashMain.do";
+		// 입력한 host_id로 host 정보 불러오기
+		HostVO vo = mapper.login(host_id);
+
+		// 입력한 비밀번호와 DB의 비밀번호가 같은지 비교
+		if (encoder.matches(host_pw, vo.getHost_pw())) {
+			// 일치하면 session에 vo값 pw 제외하고 저장해서 dashMain.do로 이동
+			session.setAttribute("vo", vo.getHost_id());
+			session.setAttribute("vo", vo.getHost_tel());
+			session.setAttribute("vo", vo.getPension_name());
+			return "dashMain.do?host_id=" + vo.getHost_id();
 		} else {
+			// 불일치하면 로그인폼으로 다시 이동
 			return "login";
 		}
 	}
@@ -96,5 +112,34 @@ public class HostController {
 	public String update(HostVO vo) {
 		mapper.Update(vo);
 		return "join";
+	}
+
+	// 6. 비밀번호 찾기 페이지 이동
+	// 6-1. 비밀번호 찾기 페이지 이동
+	@RequestMapping("/findPw.do")
+	public void findPw() {
+	}
+
+	// 6-2. 우리 회원인지 체크
+	@RequestMapping("findMyPw.do")
+	public @ResponseBody String findMyPw(String host_id) {
+
+		HostVO vo = mapper.login(host_id);
+		if (host_id == vo.getHost_id()) {
+			// 플라스크에서 이메일 전송
+			// 플라스크에서 난수 지정해서 DB에 입력해주기
+			// 난수 리턴
+			// 비밀번호 String 형태로 반환
+			return "";
+		} else {
+			return ""; // 가입된 회원이 아닐때
+		}
+
+	}
+
+	// 1. 숙소 등록 페이지로 이동
+	@RequestMapping("/pensionInfo")
+	public String pensionInfo() {
+		return "pensionInfo";
 	}
 }
