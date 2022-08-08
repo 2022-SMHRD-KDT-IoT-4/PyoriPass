@@ -3,6 +3,8 @@ package com.pyori.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.pyori.domain.HostVO;
 import com.pyori.mapper.HostMapper;
 
@@ -79,18 +82,37 @@ public class HostController {
 
 		// 입력한 host_id로 host 정보 불러오기
 		HostVO vo = mapper.login(host_id);
-
+		
 		// 입력한 비밀번호와 DB의 비밀번호가 같은지 비교
 		if (encoder.matches(host_pw, vo.getHost_pw())) {
 			// 일치하면 session에 vo값 pw 제외하고 저장해서 dashMain.do로 이동
 			session.setAttribute("vo", vo.getHost_id());
 			session.setAttribute("vo", vo.getHost_tel());
 			session.setAttribute("vo", vo.getPension_name());
-			return "dashMain.do?host_id=" + vo.getHost_id();
+			return "dashMain.do";
 		} else {
 			// 불일치하면 로그인폼으로 다시 이동
 			return "login";
 		}
+	}
+	
+	@RequestMapping("applogin.do")
+	public @ResponseBody JSONObject applogin(String host_id, String host_pw) {
+		JSONObject result = new JSONObject();
+		
+		HostVO vo = mapper.login(host_id);
+		
+		if (vo != null) {
+			if (encoder.matches(host_pw, vo.getHost_pw())) {
+				result.put("host_id", vo.getHost_id());
+				result.put("host_pw", vo.getHost_pw());
+				result.put("pension_name", vo.getPension_name());
+				result.put("host_tel", vo.getHost_tel());
+				
+				System.out.println(result);
+			}
+		}
+		return result;
 	}
 
 	// 3.로그아웃
