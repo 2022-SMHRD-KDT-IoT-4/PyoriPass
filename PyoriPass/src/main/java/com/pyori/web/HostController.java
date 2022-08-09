@@ -30,7 +30,21 @@ public class HostController {
 	public String main(HttpServletRequest request) {
 		return "main";
 	}
-
+	
+	// 대쉬메인페이지로 이동
+	@RequestMapping("/dashMainTest.do")
+	public String dashmain(HostVO vo, HttpSession session) {
+		session.setAttribute("vo", vo);
+		return "dashMain";
+	}
+	
+	// 마이페이지로 이동
+	@RequestMapping("/myPage.do")
+	public String myPage(HostVO vo, HttpSession session) {
+		session.setAttribute("vo", vo);
+		return "myPage";
+	}
+	
 	// 1. 회원가입
 	// 1-1. 회원가입 : 로그인 여부 확인
 	@RequestMapping("/join.do")
@@ -68,7 +82,7 @@ public class HostController {
 
 		mapper.join(vo);
 		model.addAttribute("vo", vo);
-		return "dashMain";
+		return "dashMainTest"; // dashMain.jsp 첨부하면 바꿔주기
 	}
 
 	// 2. 로그인
@@ -82,33 +96,34 @@ public class HostController {
 
 		// 입력한 host_id로 host 정보 불러오기
 		HostVO vo = mapper.login(host_id);
-		
+
 		// 입력한 비밀번호와 DB의 비밀번호가 같은지 비교
 		if (encoder.matches(host_pw, vo.getHost_pw())) {
 			// 일치하면 session에 vo값 pw 제외하고 저장해서 dashMain.do로 이동
 			session.setAttribute("vo", vo.getHost_id());
 			session.setAttribute("vo", vo.getHost_tel());
 			session.setAttribute("vo", vo.getPension_name());
-			return "dashMain.do";
+			return "dashMainTest"; // dashMain.jsp 첨부하면 바꿔주기
 		} else {
 			// 불일치하면 로그인폼으로 다시 이동
 			return "login";
 		}
 	}
-	
+
+	// 앱 로그인하기
 	@RequestMapping("applogin.do")
 	public @ResponseBody JSONObject applogin(String host_id, String host_pw) {
 		JSONObject result = new JSONObject();
-		
+
 		HostVO vo = mapper.login(host_id);
-		
+
 		if (vo != null) {
 			if (encoder.matches(host_pw, vo.getHost_pw())) {
 				result.put("host_id", vo.getHost_id());
 				result.put("host_pw", vo.getHost_pw());
 				result.put("pension_name", vo.getPension_name());
 				result.put("host_tel", vo.getHost_tel());
-				
+
 				System.out.println(result);
 			}
 		}
@@ -160,8 +175,11 @@ public class HostController {
 	}
 
 	// 1. 숙소 등록 페이지로 이동
-	@RequestMapping("/pensionInfo")
-	public String pensionInfo() {
-		return "pensionInfo";
+	@RequestMapping("/Rentals_information")
+	public String pensionInfo(HostVO vo, HttpSession session) {
+		System.out.println(vo.getHost_id());
+
+		session.setAttribute("host_id", vo.getHost_id());
+		return "Rentals_information";
 	}
 }
