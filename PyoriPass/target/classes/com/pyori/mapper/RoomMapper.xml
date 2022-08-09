@@ -9,22 +9,30 @@
 
 	<!-- 객실 조회 -->
 	<select id="roomlist" resultType="com.pyori.domain.RoomVO">
-		select * from t_room where pension_seq = #{pension_seq}
+		select * from t_room where
+		pension_seq = #{pension_seq}
 	</select>
 
 	<!-- 객실 수정 -->
 	<update id="roomupdate" parameterType="com.pyori.domain.RoomVO">
-		update t_room set room_name = #{room_name} where room_seq = #{room_seq}
+		update t_room set
+		room_name = #{room_name} where room_seq = #{room_seq}
 	</update>
-	
+
 	<!-- 객실 삭제 -->
 	<delete id="roomdelete" parameterType="com.pyori.domain.RoomVO">
-	    delete from t_room where room_seq = #{room_seq}
+		delete from t_room where room_seq = #{room_seq}
 	</delete>
-	
+
 	<!-- 객실 추가 -->
 	<insert id="roominsert" parameterType="com.pyori.domain.RoomVO">
-	    insert into t_room(pension_seq, room_name) values (#{pension_seq}, #{room_name})
+		insert into t_room(pension_seq, room_name) values (#{pension_seq},
+		#{room_name})
 	</insert>
+
+	<!-- 객실 전체 삭제 -->
+	<delete id="roomalldelete">
+		delete from t_room where pension_seq = #{pension_seq}
+	</delete>
 
 </mapper>
