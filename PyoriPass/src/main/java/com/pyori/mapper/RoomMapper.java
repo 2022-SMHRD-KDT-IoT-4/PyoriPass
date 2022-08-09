@@ -20,5 +20,8 @@ public interface RoomMapper {
 	
 	// 객실 추가
 	public void roominsert(RoomVO vo);
+	
+	// 객실 전체 삭제
+	public void roomalldelete(int pension_seq);
 
 }

@@ -17,5 +17,8 @@ public interface PensionMapper {
 
 	// 숙소 추가
 	public void pensioninsert(PensionVO vo);
+	
+	// 숙소 전체 삭제
+	public int pensionAllDelete(String host_id);
 
 }
