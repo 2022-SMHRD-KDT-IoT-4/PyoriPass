@@ -110,26 +110,6 @@ public class HostController {
 		}
 	}
 
-	// 앱 로그인하기
-	@RequestMapping("applogin.do")
-	public @ResponseBody JSONObject applogin(String host_id, String host_pw) {
-		JSONObject result = new JSONObject();
-
-		HostVO vo = mapper.login(host_id);
-
-		if (vo != null) {
-			if (encoder.matches(host_pw, vo.getHost_pw())) {
-				result.put("host_id", vo.getHost_id());
-				result.put("host_pw", vo.getHost_pw());
-				result.put("pension_name", vo.getPension_name());
-				result.put("host_tel", vo.getHost_tel());
-
-				System.out.println(result);
-			}
-		}
-		return result;
-	}
-
 	// 3.로그아웃
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
