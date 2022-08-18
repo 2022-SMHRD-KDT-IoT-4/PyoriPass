@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pyori.domain.AppReservationVO;
+import com.pyori.domain.GuestVO;
 import com.pyori.domain.HostVO;
 import com.pyori.mapper.AppMapper;
 import com.pyori.mapper.CalendarMapper;
@@ -75,10 +76,17 @@ public class AppController {
 		return resultArr;
 	}
 	
-	// 문 열기
-	@RequestMapping("dooropen.do")
-	public String doorOpen() {
-		System.out.println("dooropen 접속 완료");
-		return "";
+	@RequestMapping("guestlogin.do")
+	public JSONObject guestlogin(String reservation_num) {
+		JSONObject result = new JSONObject();
+		
+		GuestVO vo = mapper.guestLogin(reservation_num);
+		
+		if (vo != null) {
+			result.put("reservation_num", vo.getReservation_num());
+			result.put("guest_name", vo.getGuest_name());
+			result.put("guest_phone", vo.getGuest_phone());
+		}
+		return result;
 	}
 }
