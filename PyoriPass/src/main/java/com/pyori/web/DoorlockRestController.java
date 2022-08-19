@@ -22,7 +22,7 @@ public class DoorlockRestController {
    public Map checkNFC(@RequestBody Map<String, Object> id) {
       String guest_nfc = (String.valueOf(id.values()));
       
-      // JSON 형태로 result값 만들기
+      // JSON 형태로  result값 만들기
       Map result = new HashMap<String, Object>();
 
       GuestVO vo = g_mapper.checkNFC(guest_nfc);
