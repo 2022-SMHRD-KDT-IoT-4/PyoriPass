@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyori.mapper.GuestMapper">
+    
+    <!-- 1. 도어락 잠금 해제 : 들어온 NFC와 일치하는 데이터 조회 -->
+    <select id="checkNFC" parameterType="String" resultType="com.pyori.domain.GuestVO">
+        select * from t_guest where guest_nfc = #{guest_nfc}
+    </select>
+</mapper>
