@@ -11,12 +11,21 @@ import com.pyori.mapper.CalendarMapper;
 
 @RestController
 public class CalendarRestController {
+
 	@Autowired
-	CalendarMapper mapper;
-	
+	CalendarMapper c_mapper;
+
+	// 1. 캘린더 일정 전체 보기
 	@RequestMapping("/calendarselect")
-	public List<CalendarVO> calendarselect(String reservation_num){
-		List<CalendarVO> list = mapper.calendarselect(reservation_num);
+	public List<CalendarVO> calendarselect(String reservation_num) {
+		List<CalendarVO> list = c_mapper.calendarselect(reservation_num);
+		return list;
+	}
+
+	// 2. 캘린더 일정 클릭해서 일정 상세 보기
+	@RequestMapping("/calendardetail")
+	public CalendarVO calendardetail(String reservation_num) {
+		CalendarVO list = c_mapper.calendardetail(reservation_num);
 		return list;
 	}
 }

@@ -15,9 +15,6 @@ import com.pyori.mapper.RoomMapper;
 @RestController
 public class PensionRoomRestController {
 
-	// Ajax랑 통신해서, 요청을 처리하고, 데이터를 응답해주는 경우
-	// @ResponseBody를 적지 않아도, 페이지 이동 대신 데이터를 리턴할 수 있게 해줌
-
 	@Autowired
 	PensionMapper p_mapper;
 	@Autowired
@@ -86,11 +83,8 @@ public class PensionRoomRestController {
 	@RequestMapping("pensionAllDelete.do")
 	public String pensionAllDelete(String host_id) {
 
-		System.out.println("host_id : " + host_id);
-		int result1 = pr_mapper.pensionRoomAllDelete(host_id);
-		int result2 = p_mapper.pensionAllDelete(host_id);
-
-		System.out.println("result1 :" + result1 + ", result2 :" + result2);
+		pr_mapper.pensionRoomAllDelete(host_id);
+		p_mapper.pensionAllDelete(host_id);
 
 		return "숙소 전체 삭제 성공";
 	}

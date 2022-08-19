@@ -2,24 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pyori.mapper.PensionMapper">
 
-    <!-- 숙소 조회 -->
-	<select id="pensionlist" resultType="com.pyori.domain.PensionVO" parameterType="String">
+    <!-- 숙소 등록 페이지 -->
+	<!-- 1. 숙소 조회 -->
+	<select id="pensionlist" resultType="com.pyori.domain.PensionVO"
+		parameterType="String">
 		select * from t_pension where host_id = #{host_id}
 	</select>
 
-	<!-- 숙소 수정 -->
-	<update id="pensionupdate" parameterType="com.pyori.domain.PensionVO">
-	    update t_pension set pension_name = #{pension_name} where pension_seq = #{pension_seq}
+	<!-- 2. 숙소 수정 -->
+	<update id="pensionupdate"
+		parameterType="com.pyori.domain.PensionVO">
+		update t_pension set pension_name = #{pension_name} where pension_seq =
+		#{pension_seq}
 	</update>
-	
-	<!-- 숙소 삭제 -->
+
+	<!-- 3. 숙소 삭제 -->
 	<delete id="pensiondelete">
-	    delete from t_pension where pension_seq = #{pension_seq}
+		delete from t_pension where pension_seq = #{pension_seq}
 	</delete>
-	
-	<!-- 숙소 추가 -->
-	<insert id="pensioninsert" parameterType="com.pyori.domain.PensionVO">
-	    insert into t_pension(pension_name, host_id) values (#{pension_name}, #{host_id})
+
+	<!-- 4. 숙소 추가 -->
+	<insert id="pensioninsert"
+		parameterType="com.pyori.domain.PensionVO">
+		insert into t_pension(pension_name, host_id) values (#{pension_name},
+		#{host_id})
 	</insert>
-	
+
+	<!-- 5. 숙소 전체 삭제 -->
+	<delete id="pensionAllDelete" parameterType="String">
+		delete from
+		t_pension where host_id = #{host_id}
+	</delete>
+
 </mapper>
