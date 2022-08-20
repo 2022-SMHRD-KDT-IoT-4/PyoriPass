@@ -17,8 +17,8 @@ public class CalendarRestController {
 
 	// 1. 캘린더 일정 전체 보기
 	@RequestMapping("/calendarselect")
-	public List<CalendarVO> calendarselect(String reservation_num) {
-		List<CalendarVO> list = c_mapper.calendarselect(reservation_num);
+	public List<CalendarVO> calendarselect(String host_id) {
+		List<CalendarVO> list = c_mapper.calendarselect(host_id);
 		return list;
 	}
 

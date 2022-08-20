@@ -1800,3 +1800,71 @@ footer.site-footer {
   left: 1%;
 }
 
+/********************************Invasion Information*************************************/
+.Access_Records_container {
+	height: 1500px;
+}
+
+.Access_Records_title {
+	top: 3%;
+	left: 3%;
+	font-size: 60px;
+	color: #605348;
+}
+
+.Access_Records_container ul {
+	list-style: none;
+}
+
+.Access_Records_container_div li {
+	float: left;
+	width: 25%;
+	height: 25%;
+	padding: 5%;
+}
+
+.Access_Records_container_div p {
+	position: 100%;
+	text-align: center;
+}
+
+/********************************Invasion Information Form*************************************/
+.One_Access_Record_container {
+	height: 1500px;
+}
+
+.One_Access_Record_title {
+	top: 3%;
+	left: 3%;
+	font-size: 60px;
+	color: #605348;
+}
+
+.One_Access_Record_Board {
+	margin-top : 3%;
+	height: 1000px;
+	background-color: white;
+	border-radius: 30px;
+	padding-left : 12%;
+	padding-right : 12%;
+	padding-top : 5%;
+	padding-bottom : 5%;
+}
+
+.One_Access_Record_Board table {
+	width: 100%;
+	height: 800px;
+}
+
+#One_Access_Record_Time {
+	top: 3%;
+	left: 3%;
+	font-size: 30px;
+	color: #605348;
+	padding : 5%;
+	text-align : center;
+}
+
+#index {
+	font-weight : bold;
+}

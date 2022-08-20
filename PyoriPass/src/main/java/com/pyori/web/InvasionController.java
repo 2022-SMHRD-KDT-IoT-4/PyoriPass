@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pyori.domain.HostVO;
 import com.pyori.domain.InvasionVO;
+import com.pyori.mapper.HostMapper;
 import com.pyori.mapper.InvasionMapper;
 
 @Controller
@@ -20,6 +22,8 @@ public class InvasionController {
 
 	@Autowired
 	InvasionMapper i_mapper;
+	@Autowired
+	HostMapper h_mapper;
 
 	// 1. 침입 감지 영상 영상 저장하기
 	@PostMapping("/invasionInformation/video")
@@ -61,8 +65,16 @@ public class InvasionController {
 	// 3. 영상 게시물 : 선택 영상 하나 조회
 	@RequestMapping("/invasionInformationForm.do")
 	public void invasionInformationForm(int invasion_seq, Model model) {
-		InvasionVO vo = i_mapper.selectonevideo(invasion_seq);
+
+		// invasionInformationForm에 host 정보가 필요해서 
+		// 임의로 넣어준 host 정보 : host_id가 "test@gmail.com"인 host의 정보
+		HostVO vo = h_mapper.login("test@gmail.com");
+		InvasionVO i_vo = i_mapper.selectonevideo(invasion_seq);
+		
+		// vo : 호스트 정보
+		// i_vo : 영상 정보
 		model.addAttribute("vo", vo);
+		model.addAttribute("i_vo", i_vo);
 	}
 	
 

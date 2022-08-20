@@ -13,13 +13,13 @@ public interface CalendarMapper {
 			"FROM (\r\n" + 
 			"	SELECT *\r\n" + 
 			"	FROM t_host\r\n" + 
-			"	WHERE host_id = \r\n" + 
+			"	WHERE host_id = #{host_id}\r\n" + 
 			") h\r\n" + 
 			"	LEFT OUTER JOIN t_pension p ON h.host_id = p.host_id\r\n" + 
 			"	LEFT OUTER JOIN t_room ro ON p.pension_seq = ro.pension_seq\r\n" + 
 			"	LEFT OUTER JOIN t_reservation re ON ro.room_seq = re.room_seq\r\n" + 
 			"	LEFT OUTER JOIN t_guest g ON re.reservation_num = g.reservation_num")
-	List<CalendarVO> calendarselect(String reservation_num);
+	List<CalendarVO> calendarselect(String host_id);
 	
 	// 2. 캘린더 일정 클릭해서 일정 상세 보기
 	@Select("select * from app_reservation where reservation_num = #{reservation_num}")
