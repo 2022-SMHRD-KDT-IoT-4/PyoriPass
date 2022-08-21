@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* This css file is to over write bootstarp css
 --------------------------------------------------------- /
 * Theme Name: Ela Admin Template
@@ -19,6 +20,237 @@ Googel Fonts  */
 
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+
+/***인트로****/
+
+.logo,
+.lang {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 1.2em;
+}
+
+.logo {
+    color: white;
+    font-family: "Cinzel";
+}
+
+.lang {
+    right: 0;
+    font-family: Arial;
+    color: #646464;
+}
+.container-left {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+}
+
+.container-right {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    left: 50%;
+    background: url(https://images.unsplash.com/photo-1572883475077-fb5aca766ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80) no-repeat 50% 50%;
+    background-size: 110%;
+    animation: animatedBackground1 6s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-delay: 5s;
+}
+
+@keyframes animatedBackground1 {
+    from {
+        background-size: 460%;
+    }
+    to {
+        background-size: 110%;
+    }
+}
+
+.container-left-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   width: 300px;
+    height: 400px;
+    background: url(https://images.unsplash.com/photo-1560918801-53fe5c710a80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1250&q=80) no-repeat 50% 50%;
+    background-size: 210%;
+    animation: animatedBackground2 6s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-delay: 5s;
+}
+
+@keyframes animatedBackground2 {
+    from {
+        background-size: 760%;
+    }
+    to {
+        background-size: 210%;
+    }
+}
+.left-img-cap {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: "Arial";
+    text-transform: uppercase;
+    color: red;
+    line-height: 24px;
+}
+
+.left-img-cap span {
+    font-style: italic;
+}
+
+.left-img-btn {
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Cinzel";
+    background: #8f8776;
+}
+
+.social-media {
+    position: absolute;
+    bottom: 0;
+}
+
+.social-media ul {
+    list-style: none;
+    padding: 0;
+    margin: 2em;
+}
+
+.social-media ul li {
+    padding: 10px 0;
+}
+
+.social-media ul li a {
+    color: #8f8776;
+}
+
+.left-bottom-text {
+    position: absolute;
+    color: grey;
+    font-size: 48px;
+    font-family: "Cinzel";
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 20px;
+    bottom: 0;
+    right: 0;
+}
+
+.right-upper-text {
+    position: absolute;
+    color: red;
+    font-size: 48px;
+    font-family: "Arial";
+    text-transform: uppercase;
+    font-weight: lighter;
+    padding: 18px;
+    opacity: 0;
+    animation: blinker 1s linear infinite;
+    animation-delay: 10s;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 1;
+    }
+}
+
+.right-upper-text span {
+    font-style: italic;
+}
+
+.right-bottom-text {
+    position: absolute;
+    color: white;
+    font-size: 48px;
+    font-family: "Arial";
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: lighter;
+    padding: 26px;
+    bottom: 0;
+}
+
+@media (max-width: 990px) {
+    .container-left,
+    .container-right {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .container-right {
+        top: 100vh;
+        left: 0;
+    }
+
+    .left-img-btn,
+    .social-media {
+        display: none;
+    }
+}
+
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.loader marquee {
+    opacity: 0.2;
+    text-transform: uppercase;
+    line-height: 180px;
+    margin: 0;
+    padding: 0;
+    color: #646464;
+    font-size: 200px;
+    font-family: "Cinzel";
+}
+
+.loader .intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.loader .intro h1 {
+    font-size: 124px;
+    text-transform: uppercase;
+    font-weight: 200;
+    color: #e9e6e4;
+    font-family: "Cinzel";
+}
+
+
+
+.intro-title .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+
+
+
 
 
 /*
@@ -619,14 +851,44 @@ header.fixed-top {
   border: 0px solid transparent;
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); }
+          
+  .bookings_content_title{
+	font-size : 20px;  
+  
+  }
 
-  #b_today, #b_next{
+
+  #b_today, #b_tomorrow{
     position: relative;
     text-align: center;
-    height: 300px;
-    top: 10%;
-  }          
+    height: 250px;
+    top: 30px;
+    background-color : #ffff;
+  }
   
+  #b_today_nfc, #b_tomorrow_nfc{
+  	position : relative;
+  	top : 40%;
+  	background: #605348;
+    height: 40px;
+    width: 250px;
+    color: #fff;
+    left: 34%;
+    font-size: 20px;
+  }
+            
+  #b_today_id, #b_tomorrow_id{  
+    font-size : 30px;
+    position : relative;
+    top : 20%;
+    font-weight: bold;
+  }
+  
+  #b_today_date, #b_tomorrow_date{
+  	position : relative;
+  	font-size : 20px;
+  	top : 30%;
+  }
 
   #card-key{
     background-color: #605348;
@@ -725,6 +987,7 @@ header.fixed-top {
 
 
 .card-content {
+	text-align : center;
   min-height: 350px; }
   .card-content .stat-icon {
     font-size: 50px;
@@ -777,17 +1040,32 @@ header.fixed-top {
   bottom: 125%;
 }
 
+#notissuebtn{
+	border : none;
+	background-color : rgb(91, 18, 18);
+	height : 27px;
+	color : #fff;
+	
+}
+
+#issuebtn{
+	border : none;
+	background-color : rgb(39, 116, 41);
+	height : 27px;
+	color : #fff;
+}
+
 
 
 /******** Calendar 예지 *******/
 
 .calendar-container{
   position: relative;
-  height: 350px;
+  height: 750px;
+  width : 100%;
+  background-color : #dad7d0;
 }
 
-.calendar-body {
-  padding: 15px; }
 
 .card .calendar-body {
   float: left;
@@ -802,86 +1080,44 @@ header.fixed-top {
 .social-buttons .only-icon .calendar-body p button {
   padding: 0; }
 
+
+
+#calendar {
+	height : 100%;
+	width : 100%;
+	position : relative;
+	overflow: hidden;
+}
+
 .calendar{
   background-color: #fff;
-  width: 25%;
+  width: 30%;
+  height : 680px;
+  position: relative; 
+  text-align : center;
+  top : 5%;
+  left : 2%;
 }
 
-.fc-day-number{
-  position: relative;
-  right: 40%;
-}
 
-
-.calender-cont {
-  position: relative;
-  padding-top: 20px; }
-  .calender-cont .fc-title {
-    color: #fff; }
-  .calender-cont .fc-center {
-    position: absolute;
-    top: 0;
-    left: 0; }
-    .calender-cont .fc-center h2 {
-      font-size: 16px;
-      font-weight: 700; }
-  .calender-cont td .fc-event {
-    border: 0px solid transparent;
-    padding: 1px; }
-  .calender-cont td .fc-time {
-    color: white;
-    font-weight: 400;
-    font-size: 11px;
-    padding: 2px; }
-  .calender-cont .fc-left .fc-button-group {
-    position: absolute;
-    top: 0;
-    right: 0; }
-    .calender-cont .fc-left .fc-button-group button {
-      height: 20px;
-      width: 20px;
-      line-height: 18px;
-      padding: 0;
-      border: 0px solid transparent;
-      background: #eceff1;
-      color: #889196; }
-      .calender-cont .fc-left .fc-button-group button.fc-prev-button {
-        margin-right: 4px; }
-      .calender-cont .fc-left .fc-button-group button .fc-icon {
-        font-size: 11px; }
-      .calender-cont .fc-left .fc-button-group button:hover {
-        background: #d8d8d8; }
-  .calender-cont.widget-calender {
-    padding-top: 20px; }
-    .calender-cont.widget-calender td, .calender-cont.widget-calender th {
-      font-size: 14px;
-      border: 0px solid transparent; }
-    .calender-cont.widget-calender .fc-right {
-      display: none; }
-    .calender-cont.widget-calender .fc-today-button {
-      display: none; }
-    .calender-cont.widget-calender .fc-widget-content {
-      height: 45px !important;
-      min-height: 45px !important; }
-    .calender-cont.widget-calender .fc-day-grid-container {
-      max-height: 250px !important;
-      overflow: hidden !important; }
 
 
       /**********************캘린더 옆 ********************/
 
 
   .calendar-content-container{
-    width: 70%;
-    height: 337px;
-    background-color: #dad7d0;
+    width: 65%;
+    height: 680px;
+    background-color: #fff;
     position: relative;
-    bottom: 337px;
-    left: 30%;
+    bottom: 86%;
+    left: 33%;
   }
 
   .calendar-content{
+    top : 10%;
     height: 100%;
+    width 
   }
 
   .calendar-content-title{
@@ -893,11 +1129,46 @@ header.fixed-top {
   }
 
   .calendar-content-content{
-    background-color: #FFFFFF;
+    background-color: #ecebe4 ;
     position: relative;
-    width: 95%;
-    height: 85%;
-    left: 2.5%;
+    width: 75%;
+    height: 350px;
+    left: 12%;
+  }
+  
+  .calendar_content{
+    height: 80%;
+    position: relative;
+    top: 10%;
+    left: 5%;
+    font-size : 25px;
+  }
+  
+  #calendar_name_img_container{
+  	width : 100px;
+  }
+  
+  .calendar_name_img {
+  	width : 80px;
+  	height : 80px;
+  }
+  
+
+  .calendar_content tr{
+  height: 100px;
+   
+  }
+  
+  
+  #calendar_info_btn{
+  position : relative;
+  background : #605348;
+  border: none;
+  width: 400px;
+  height: 50px;
+  font-size: 25px;
+  color: white;
+  left: 65%;
   }
 
 
@@ -1265,6 +1536,7 @@ header.fixed-top {
 
 .footer-inner bg-white{
   background-color: #ecebe4;
+  width : 100%;
 }
 
 footer.site-footer {
@@ -1650,6 +1922,8 @@ footer.site-footer {
   left: 25%;
 }
 
+
+
 #guest_reservation_personname, #guest_reservation_rnum, #guest_reservation_pnum{
   position: relative;
   left: 2%;
@@ -1687,11 +1961,10 @@ footer.site-footer {
 #guest_reservation_cancle, #guest_reservation_ok{
   position: relative;
   width: 20%;
-  height: 8%;
+  height: 40px;
   margin-right: 3%;
   border: 0px;
   background: #605348;
-  left: 30%;
   color: #ffffff;
 }
 
@@ -1707,16 +1980,13 @@ footer.site-footer {
 .rentals_information_title {
   position: relative;
   top: 3%;
-  left: 3%;
   font-size: 60px;
   color: #605348;
 }
 
 .rentals_information_content_container{
   position: relative;
-  top: 5%;
   left: 5%;
-  background: #dad7d0;
   left: 2.5%;
   width: 95%;
   height: 90%;
@@ -1726,8 +1996,9 @@ footer.site-footer {
 .rentals_information_content{
   position: relative;
   top: 4%;
-  left: 5%;
   height: 80%;
+  background: #dad7d0;
+  width : 95%;
 }
 
 
@@ -1738,11 +2009,22 @@ footer.site-footer {
   width: 600px;
 }
 
+.list-box {
+	position : relative;
+	left : 5%;
+}
+
+.r_list-box {
+	position : relative;
+	left : 5%;
+}
+
+
 
 .list-box h1, .r_list-box h1{
   position: relative;
   color: #605348;
-  left: 1%;
+  left: 5%;
 }
 
 .text-basic, .r_text-basic{
@@ -1759,6 +2041,13 @@ footer.site-footer {
 }
 
 .list-box button, .r_list-box button {
+  background-color: #605348;
+  color: #FFFFFF;
+  border: none;
+}
+
+#btnUpdate{
+  position: relative;
   background-color: #605348;
   color: #FFFFFF;
   border: none;
@@ -1800,6 +2089,81 @@ footer.site-footer {
   left: 1%;
 }
 
+
+
+
+/*0809 추가본*/
+
+/*대시보드 오른쪽 상위 호스트*/
+
+.mypage_information_container{
+  position: relative;
+  height: 800px;
+}
+
+.mypage_information_content_container{
+  position: relative;
+  top: 5%;
+  background: #dad7d0;
+  left: 2.5%;
+  width: 95%;
+  height: 90%;
+}
+
+.mypage_information_content{
+  position: relative;
+  top: 4%;
+  height: 80%;
+}
+
+.header-menu {
+  height: 65px;
+}
+
+#host_info_photo{
+  height: 60px;
+  position: relative;
+  top: 10%;
+  right: 10%;
+}
+
+.photo_container{
+  position: relative;
+  width: 20%;
+  height: 50%;
+  left: 3%;
+}
+
+#mypage_photo{
+  position: relative;
+  width: 100%;
+}
+
+#mypage_form{
+  position: relative;
+  bottom: 50%;
+}
+
+#mypage_photo_modify{
+  position: relative;
+  top: 2%;
+  left: 8%;
+  border: none;
+  width: 85%;
+  height: 18%;
+  background-color: #605348;
+  color: #FFFFFF;
+}
+
+.mypage_content_container{
+  position: relative;
+  left: 30%;
+  bottom: 40%;
+  height: 50%;
+  font-size: 22px;
+  line-height: 200%;
+}
+
 /********************************Invasion Information*************************************/
 .Access_Records_container {
 	height: 1500px;
@@ -1812,6 +2176,14 @@ footer.site-footer {
 	color: #605348;
 }
 
+.Access_Records_content{
+	background-color: #dad7d0;
+	height : 1500px;
+	width : 100%;
+}
+
+
+
 .Access_Records_container ul {
 	list-style: none;
 }
@@ -1819,8 +2191,11 @@ footer.site-footer {
 .Access_Records_container_div li {
 	float: left;
 	width: 25%;
-	height: 25%;
-	padding: 5%;
+	height: 30%;
+	padding: 3%;
+	background-color: #ffff;
+	margin-left: 5%;
+    margin-top: 2%;
 }
 
 .Access_Records_container_div p {

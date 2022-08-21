@@ -136,6 +136,8 @@ pageContext.setAttribute("cpath", request.getContextPath());
 					<div class="Access_Records_container">
 					<div class="Access_Records_title">Access Records</div>
 
+
+						<div class="Access_Records_content">
 						<ul>
 							<c:forEach items="${list}" var="vo">
 								<div class="Access_Records_container_div">
@@ -151,6 +153,7 @@ pageContext.setAttribute("cpath", request.getContextPath());
 								</div>
 							</c:forEach>
 						</ul>
+						</div>
 
 					</div>
 				</div>

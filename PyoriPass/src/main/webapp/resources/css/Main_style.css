@@ -1,4 +1,21 @@
 /********** Template CSS **********/
+
+/*글꼴*/
+@font-face {
+	font-family : 'GSMedium';
+	src : url('resources/fonts/GmarketSansTTFMedium.ttf') format ('truetype');
+}
+
+@font-face {
+	font-family : 'GSBold';
+	src : url('resources/fonts/GmarketSansTTFBold.ttf') format ('truetype');
+}
+
+
+body {
+	font-family : 'GSMedium';
+}
+
 :root {
     --primary: #efefef;
     --light: #bdbdbd;
@@ -25,6 +42,10 @@
 
 
 /*** header 예지 ***/
+
+#Mainbackground{
+	background-color:#000000;
+}
 
 /*메인 로그인 버튼*/
 
@@ -56,16 +77,19 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: #ecebe4 ;
+    background-color: #000000 ;
     text-align: center;
     
 
 }
 
 .MainTitle_Title {
-    font-size: 80px;
-    line-height: 200px;
+	font-family : 'GSBold';
+	height : 300px;
+    font-size: 100px;
+    line-height: 300px;
     color: #605348;
+    font-weight: bold;
 }
 
 .MainTtile_1 {
@@ -179,7 +203,7 @@
 
 .function_color:hover {
     margin-top: -10px;
-    background: #ecebe4 ;
+    background: #000000 ;
 }
 
 
@@ -218,6 +242,11 @@
 
 /** 이미지 **/
 
+#question1, #question2 {
+	position : relative;
+	bottom : 30%;
+}
+
 .main_function_img1 {
     float: right;
     margin-right: 10%;
@@ -244,26 +273,83 @@
 }
 
 
+/** 자주 묻는 질문 **/
+
+.main_question {
+	position : relative;
+	height : 1500px;
+	background-color : #000000;
+}
+
+.main_question_title {
+	height : 100px;
+    font-size: 60px;
+    font-weight: bold;
+    color: #605348;
+    text-align: center;
+    top: 5%;
+}
+
+
+details {
+  font-size: 30px;
+  margin: 7em auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  background: #605348;
+  color : #ffff;
+  border-radius: 8px;
+  position: relative;
+  width: 1500px;
+}
+details .summary-title {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+details:hover {
+  cursor: pointer;
+}
+details .summary-content {
+  border-top: 1px solid #e2e8f0;
+  cursor: default;
+  padding: 1em;
+  font-weight: 300;
+  line-height: 1.5;
+}
+details summary {
+  list-style: none;
+  padding: 1em;
+}
+details summary:focus {
+  outline: none;
+}
+details summary:hover .summary-chevron-up svg {
+  opacity: 1;
+}
+details .summary-chevron-up svg {
+  opacity: 0.5;
+}
+details .summary-chevron-up,
+details .summary-chevron-down {
+  pointer-events: none;
+  position: absolute;
+  top: 0.75em;
+  right: 1em;
+  background: #605348;
+}
+details .summary-chevron-up svg,
+details .summary-chevron-down svg {
+  display: block;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+
 
 /*** 끝 ***/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
