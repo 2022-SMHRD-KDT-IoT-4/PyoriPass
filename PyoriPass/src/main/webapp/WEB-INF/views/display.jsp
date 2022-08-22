@@ -13,15 +13,10 @@
 <body>
     <!-- header -->
 
-    <div class="MainDisplay_container" onclick="location.href='display2.do'">
-    <p>
-        편리하고 스마트한 생활을 위한 도어락
-        <span>
-          hOngPEN
-        </span>
-        Made By Pyoripass
-      </p>
-    </div>
+    <h1 data-heading="Slide" onclick="location.href='display2.do'">hOngPEN</h1>
+    
+    
+    
 
 
     <!-- footer -->

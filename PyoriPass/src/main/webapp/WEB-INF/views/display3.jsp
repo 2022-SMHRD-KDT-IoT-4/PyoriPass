@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="resources/css/display.css" rel="stylesheet">
+    <link href="resources/css/display3.css" rel="stylesheet">
     <title>pyoripass</title>
 
 </head>
