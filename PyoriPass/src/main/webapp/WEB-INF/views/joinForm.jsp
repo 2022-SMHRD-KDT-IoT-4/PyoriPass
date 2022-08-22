@@ -51,7 +51,7 @@
    <form class="join1_content_form" action="joinSuccess.do" method="post">
             <input type="text" id="join1_email"name="host_id" placeholder="이메일 주소(자동저장)" value="${host_id}"> 
             <br>
-            <input type="button" id="join1_email_btn" value="링크인증받기" >
+            <input type="button" id="join1_email_btn" value="링크인증받기" onclick="join_email()">
             <br>
 			<input type="password" name = "host_pw" class="join1_pw" id="join1_password" placeholder="비밀번호">
             <br>
