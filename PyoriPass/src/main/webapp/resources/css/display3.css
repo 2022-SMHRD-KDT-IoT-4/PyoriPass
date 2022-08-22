@@ -1,0 +1,119 @@
+
+
+
+
+
+  /*display2*/
+
+  .Display2_container{
+    width: 800px;
+    height: 480px;
+    background: #1e90ff;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Display2_container h1{
+    height: 100px;
+  }
+
+  .Display2_container h1 span {
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    animation: bounce .3s ease infinite alternate;
+    font-size: 60px;
+    color: #ffe221;
+    text-shadow: 0 1px 0 #CCC,
+               0 2px 0 #CCC,
+               0 3px 0 #CCC,
+               0 4px 0 #CCC,
+               0 5px 0 #CCC,
+               0 6px 0 transparent,
+               0 7px 0 transparent,
+               0 8px 0 transparent,
+               0 9px 0 transparent,
+               0 10px 10px rgba(0, 0, 0, .4);
+}
+
+.Display2_container h1 span:nth-child(2) { animation-delay: .1s; }
+.Display2_container h1 span:nth-child(3) { animation-delay: .2s; }
+.Display2_container h1 span:nth-child(4) { animation-delay: .3s; }
+.Display2_container h1 span:nth-child(5) { animation-delay: .4s; }
+.Display2_container h1 span:nth-child(6) { animation-delay: .5s; }
+.Display2_container h1 span:nth-child(7) { animation-delay: .6s; }
+.Display2_container h1 span:nth-child(8) { animation-delay: .7s; }
+.Display2_container h1 span:nth-child(9) { animation-delay: .8s; }
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 #CCC,
+                 0 2px 0 #CCC,
+                 0 3px 0 #CCC,
+                 0 4px 0 #CCC,
+                 0 5px 0 #CCC,
+                 0 6px 0 #CCC,
+                 0 7px 0 #CCC,
+                 0 8px 0 #CCC,
+                 0 9px 0 #CCC,
+                 0 50px 25px rgba(0, 0, 0, .2);
+  }
+}
+
+  /*display2(NFC불일치)*/
+
+  .Display2_01_container {
+    width: 800px;
+    height: 480px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+  }
+
+  .Display2_01_container h1 {
+    position: relative;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 40px;
+  font-weight: 900;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  background-size: 120% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -ms-background-clip: text;
+  -ms-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #7794ff, #44107A, #FF1361, #FFF800);
+  animation: 0.8s shake infinite alternate;
+}
+
+@keyframes shake {
+  0% {
+    transform: skewX(-15deg);
+  }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}

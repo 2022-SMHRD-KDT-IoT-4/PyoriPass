@@ -1,172 +1,42 @@
-.MainDisplay_container {
-    font: 400 1em/1.5 "Neuton";
-    background: #090d00;
-    color: rgba(255, 255, 255, 0.25);
-    text-align: center;
-    margin: 0;
-    width: 800px;
-    height: 480px;
-    text-align: center;
-  }
-  
- .MainDisplay_container p {
-    text-transform: uppercase;
-    letter-spacing: 0.5em;
-    display: inline-block;
-    border: 4px double rgba(255, 255, 255, 0.25);
-    border-width: 4px 0;
-    padding: 1.5em 0em;
-    position: relative;
-    left: 20%;
-    top: 27%;
-    width: 40em;
-    margin: 0 0 0 -20em;
-  }
- .MainDisplay_container p span {
-    font: 700 4em/1 "Oswald", sans-serif;
-    letter-spacing: 0;
-    padding: 0.25em 0 0.325em;
-    display: block;
-    margin: 0 auto;
-    text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
-    /* Clip Background Image */
-    background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
-    -webkit-background-clip: text;
-    background-clip: text;
-    /* Animate Background Image */
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: aitf 80s linear infinite;
-    /* Activate hardware acceleration for smoother animations */
-    -webkit-transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-  }
-  
-  /* Animate Background Image */
-  @-webkit-keyframes aitf {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
-  }
-
-
-
-
-
-
-  /*display2*/
-
-  .Display2_container{
-    width: 800px;
-    height: 480px;
-    background: #1e90ff;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .Display2_container h1{
-    height: 100px;
-  }
-
-  .Display2_container h1 span {
-    position: relative;
-    top: 20px;
-    display: inline-block;
-    animation: bounce .3s ease infinite alternate;
-    font-size: 60px;
-    color: #ffe221;
-    text-shadow: 0 1px 0 #CCC,
-               0 2px 0 #CCC,
-               0 3px 0 #CCC,
-               0 4px 0 #CCC,
-               0 5px 0 #CCC,
-               0 6px 0 transparent,
-               0 7px 0 transparent,
-               0 8px 0 transparent,
-               0 9px 0 transparent,
-               0 10px 10px rgba(0, 0, 0, .4);
+html {
+  overflow: hidden;
 }
 
-.Display2_container h1 span:nth-child(2) { animation-delay: .1s; }
-.Display2_container h1 span:nth-child(3) { animation-delay: .2s; }
-.Display2_container h1 span:nth-child(4) { animation-delay: .3s; }
-.Display2_container h1 span:nth-child(5) { animation-delay: .4s; }
-.Display2_container h1 span:nth-child(6) { animation-delay: .5s; }
-.Display2_container h1 span:nth-child(7) { animation-delay: .6s; }
-.Display2_container h1 span:nth-child(8) { animation-delay: .7s; }
-.Display2_container h1 span:nth-child(9) { animation-delay: .8s; }
-
-@keyframes bounce {
-  100% {
-    top: -20px;
-    text-shadow: 0 1px 0 #CCC,
-                 0 2px 0 #CCC,
-                 0 3px 0 #CCC,
-                 0 4px 0 #CCC,
-                 0 5px 0 #CCC,
-                 0 6px 0 #CCC,
-                 0 7px 0 #CCC,
-                 0 8px 0 #CCC,
-                 0 9px 0 #CCC,
-                 0 50px 25px rgba(0, 0, 0, .2);
-  }
+body {
+  width: 800px;
+  height: 480px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bungee Shade", cursive;
+  background: #ffed94;
 }
 
-  /*display2(NFC불일치)*/
-
-  .Display2_01_container {
-    width: 800px;
-    height: 480px;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
-  }
-
-  .Display2_01_container h1 {
-    position: relative;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  font-size: 40px;
-  font-weight: 900;
-  text-decoration: none;
-  color: white;
-  display: inline-block;
-  background-size: 120% 100%;
+h1 {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+  font-size: 150px;
+  background: linear-gradient(-45deg, #4bc0c8 25%, #feac5e 25%, #feac5e 50%, #4bc0c8 50%, #4bc0c8 75%, #feac5e 75%, #feac5e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-  -ms-background-clip: text;
-  -ms-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  background-image: linear-gradient(45deg, #7794ff, #44107A, #FF1361, #FFF800);
-  animation: 0.8s shake infinite alternate;
+  background-size: 20px 20px;
+  background-position: 0 0;
+  -webkit-animation: stripes 1s linear infinite;
+          animation: stripes 1s linear infinite;
 }
 
-@keyframes shake {
-  0% {
-    transform: skewX(-15deg);
-  }
-  5% {
-    transform: skewX(15deg);
-  }
-  10% {
-    transform: skewX(-15deg);
-  }
-  15% {
-    transform: skewX(15deg);
-  }
-  20% {
-    transform: skewX(0deg);
-  }
+@-webkit-keyframes stripes {
   100% {
-    transform: skewX(0deg);
+    background-position: 20px 0, 20px 0, 20px 0;
+  }
+}
+
+@keyframes stripes {
+  100% {
+    background-position: 20px 0, 20px 0, 20px 0;
   }
 }

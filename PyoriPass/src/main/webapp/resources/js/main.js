@@ -51,18 +51,20 @@ $('.product_num').on("input", function() {
 
 // 이메일 인증링크 받기
 
-function join1_email_btn() {
+function join_email() {
+	host_id = $('#join1_email').val();
   $.ajax({
     url: 'joinSendEmail.do',
     type : 'post',
     data : {
-      
-      host_id 
-
+      host_id : host_id
     },
     success : function (res) {
-
-    }
-  })
+    	alert('메일을 전송했습니다. 확인해주세요.')
+    },
+    error : function(){
+    	alert('메일 전송 실패!')
+  	}
+    });
 }
 

@@ -4,7 +4,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Modern Blog Layout with CSS Grid</title>
+  <title>hOngPEN</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="resources/css/reset_Main_style.css">
 
@@ -48,7 +48,7 @@
    <input type="hidden" value=${vo.host_id} class="host_id" />
    
    
-   <form class="join1_content_form" action="joinSuccess.do">
+   <form class="join1_content_form" action="joinSuccess.do" method="post">
             <input type="text" id="join1_email"name="host_id" placeholder="이메일 주소(자동저장)" value="${host_id}"> 
             <br>
             <input type="button" id="join1_email_btn" value="링크인증받기" >
