@@ -1103,97 +1103,93 @@ header.fixed-top {
 
 
       /**********************캘린더 옆 ********************/
+.calendar-content-container {
+	width: 65%;
+	height: 680px;
+	background-color: #fff;
+	position: relative;
+	bottom: 86%;
+	left: 33%;
+}
 
+.calendar-content {
+	top: 10%;
+	height: 100%;
+	padding: 5%;
+	
+}
 
-  .calendar-content-container{
-    width: 65%;
-    height: 680px;
-    background-color: #fff;
-    position: relative;
-    bottom: 86%;
-    left: 33%;
-  }
+.calendar-content-content{
+	height : 100%;
+	background-color: #ecebe4;
+}
 
-  .calendar-content{
-    top : 10%;
-    height: 100%;
-    width 
-  }
+#calendar_content {
+	position: relative;
+	width: 100%;
+	height : 100%;
+	padding : 10%;
+	margin-left : 3%;
+}
 
-  .calendar-content-title{
-    font-weight: 600;
-    font-size: 1em;
-    padding: 5px 0;
-    position: relative;
-    left: 2%;
-  }
+.calendar_content {
+	height: 100%;
+	position: relative;
+	font-size: 25px;
+}
 
-  .calendar-content-content{
-    background-color: #ecebe4 ;
-    position: relative;
-    width: 75%;
-    height: 350px;
-    left: 12%;
-  }
-  
-  .calendar_content{
-    height: 80%;
-    position: relative;
-    top: 10%;
-    left: 5%;
-    font-size : 25px;
-  }
-  
-  #calendar_name_img_container{
-  	width : 100px;
-  }
-  
-  .calendar_name_img {
-  	width : 80px;
-  	height : 80px;
-  }
-  
+#calendar_name_img_container {
+	width: 100px;
+}
 
-  .calendar_content tr{
-  height: 100px;
-   
-  }
-  
-  
-  #calendar_info_btn{
-  position : relative;
-  background : #605348;
-  border: none;
-  width: 400px;
-  height: 50px;
-  font-size: 25px;
-  color: white;
-  left: 65%;
-  }
+#calendar_name_img {
+	width: 80px;
+	height: 80px;
+}
 
+.calendar_content #calendar_c tr {
+	height: 100px;
+}
 
+#calendar_info_btn {
+	position: relative;
+	background: #605348;
+	border: none;
+	width: 400px;
+	height: 50px;
+	font-size: 25px;
+	color: white;
+	margin-left: 25%;
+	margin-right: 25%;
+}
 
 .table-stats table {
-  font-family: 'Open Sans'; }
-  .table-stats table th,
-  .table-stats table td {
-    border: none;
-    border-bottom: 1px solid #e8e9ef;
-    color: #868e96;
-    font-size: 12px;
-    font-weight: normal;
-    padding: .75em 1.25em;
-    text-transform: uppercase; }
-    .table-stats table th img,
-    .table-stats table td img {
-      margin-right: 10px;
-      max-width: 45px; }
-  .table-stats table td {
-    color: #343a40;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: capitalize;
-    vertical-align: middle; }
+	font-family: 'Open Sans';
+}
+
+.table-stats table th, .table-stats table td {
+	border: none;
+	border-bottom: 1px solid #e8e9ef;
+	color: #868e96;
+	font-size: 12px;
+	font-weight: normal;
+	padding: .75em 1.25em;
+	text-transform: uppercase;
+}
+
+.table-stats table th img, .table-stats table td img {
+	margin-right: 10px;
+	max-width: 45px;
+}
+
+.table-stats table td {
+	color: #343a40;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: capitalize;
+	vertical-align: middle;
+}
+
 
 /* Timeline */
 .timeline li {

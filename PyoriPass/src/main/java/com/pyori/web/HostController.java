@@ -106,7 +106,7 @@ public class HostController {
 
 		h_mapper.join(vo);
 		model.addAttribute("vo", vo);
-		return "Main";
+		return "redirect:/dashMain.do";
 	}
 
 	// 2. 로그인
@@ -123,12 +123,10 @@ public class HostController {
 		HostVO vo = h_mapper.login(host_id);
 
 		// 입력한 비밀번호와 DB의 비밀번호가 같은지 비교
-		//if (encoder.matches(host_pw, vo.getHost_pw())) {
-			if (true) {
+		if (encoder.matches(host_pw, vo.getHost_pw())) {
 			// 일치하면 session에 vo값 pw 제외하고 저장해서 dashMain.do로 이동
 			session.setAttribute("vo", vo);
-			System.out.println("이거 : " + vo);
-			return "dashMain";
+			return "redirect:/dashMain.do";
 		} else {
 			// 불일치하면 로그인폼으로 다시 이동
 			return "login";
@@ -164,9 +162,6 @@ public class HostController {
 	@RequestMapping("/findPw.do")
 	public void findPw() {
 	}
-	//public String findPw(HttpServletRequest request) {
-	//	return "findPw";
-	//}
 
 	// 6-2. 임시 비밀번호 발급 및 메일 전송
 	@RequestMapping("findMyPw.do")

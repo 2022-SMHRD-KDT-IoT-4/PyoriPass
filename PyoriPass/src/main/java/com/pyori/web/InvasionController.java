@@ -1,5 +1,9 @@
 package com.pyori.web;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.List;
@@ -27,15 +31,15 @@ public class InvasionController {
 
 	// 1. 침입 감지 영상 영상 저장하기
 	@PostMapping("/invasionInformation/video")
-	public void video(@RequestBody Map<String, Object> payload) {
+	public void video(@RequestBody Map<String, Object> payload) throws IOException {
 		// JSON 형태의 영상 key값 디코딩
 		byte[] buf = Base64.getDecoder().decode((String) payload.get("key"));
 		// 해당 위치에 파일 저장
 		LocalDateTime now = LocalDateTime.now();
 		String fileName = String.valueOf(now).replace(":", ".");
 
-		// Files.write(Paths.get("C:\\Users\\SMHRD\\git\\PyoriPass2\\PyoriPass\\src\\main\\webapp\\resources\\video\\"+
-		// fileName + ".mp4"), buf, StandardOpenOption.CREATE);
+		Files.write(Paths.get("C:\\Users\\SMHRD\\git\\PyoriPass2\\PyoriPass\\src\\main\\webapp\\resources\\video\\"+
+		 fileName + ".mp4"), buf, StandardOpenOption.CREATE);
 
 		InvasionVO vo = new InvasionVO();
 		vo.setInvasion_time(String.valueOf(now).replace("T", " ").substring(0, 18));
